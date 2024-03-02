@@ -42,7 +42,7 @@
     }
 
     orders.forEach((order) => {
-      const orderId = order.order_id;
+      //const orderId = order.order_id;
 
       const row = document.createElement("tr");
 
@@ -70,7 +70,8 @@
 
   function onSaveButton() {
     const data = {
-      order_id : parseFloat(orderIdField.value),
+      //order_id : parseFloat(orderIdField.value),
+      order_id : 0,
       product_id : parseFloat(productIdField.value),
       quantity : parseFloat(quantityField.value),
       subtotal : parseFloat(subtotalField.value),
@@ -88,13 +89,15 @@
     .then(json => { if (json.hasOwnProperty('message')) {
         alert("Error: " + json.message);
       } else {
+        console.log(data)
         updateOrderForm(json)
       }
     });
   }
 
   function updateOrderForm(json) {
-    alert("The order total for " + json.order_id + " has been updated to " + json.total);
+    //alert("The order total for " + json.order_id + " has been updated to " + json.total);
+    alert(" has been updated to " + json.total);
     fetchOrders();
     document.getElementById("add-order-form").reset();
   }

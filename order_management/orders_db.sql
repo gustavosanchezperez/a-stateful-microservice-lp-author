@@ -1,5 +1,5 @@
 CREATE DATABASE IF NOT EXISTS orders COMMENT 'Orders microservice db';
-
+CREATE USER 'orders' IDENTIFIED 'orders';
 GRANT ALL PRIVILEGES ON orders.* TO 'orders'@'%';
 
 USE orders;
