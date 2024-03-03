@@ -85,7 +85,7 @@ jobs:
           #         query orders
           resp=$(curl http://localhost:8003/orders)
           echo "$resp"
-          if [[ $resp == *"order_id":1* ]]; then
+          if [[ $resp == *25.25* ]]; then
           echo -e "Execution Success!"
           else
           echo -e "Execution Fail!"
