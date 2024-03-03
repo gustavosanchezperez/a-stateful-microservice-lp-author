@@ -73,6 +73,25 @@ jobs:
           echo -e "Execution Fail!"
           exit 1
           fi
+#         add new order
+          resp=$(curl http://localhost:8003/create_order -X POST -d @order.json)
+          echo "$resp"
+          if [[ $resp == *21.65* ]]; then
+          echo -e "Execution Success!"
+          else
+          echo -e "Execution Fail!"
+          exit 1
+          fi
+#         query orders
+          resp=$(curl http://localhost:8003/orders)
+          echo "$resp"
+          if [[ $resp == *"order_id":1* ]]; then
+          echo -e "Execution Success!"
+          else
+          echo -e "Execution Fail!"
+          exit 1
+          fi
+          #         clean up
           kill -9 `cat sales_tax_rate/sales_tax_rate.pid`
           rm sales_tax_rate/sales_tax_rate.pid
           kill -9 `cat order_management/order_management.pid`
