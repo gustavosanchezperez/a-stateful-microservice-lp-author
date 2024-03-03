@@ -53,6 +53,7 @@
       row.appendChild(createCell(order.shipping_address));
       row.appendChild(createCell(order.shipping_zip));
       row.appendChild(createCell(order.total));
+      row.appendChild(createCell(order.shipping_cost));
 
       orderTableBodyEle.appendChild(row);
     });
@@ -78,6 +79,7 @@
       shipping_address : shippingAddressField.value,
       shipping_zip : shippingZipField.value,
       total : 0.0,
+      shipping_cost : 0.0,
     };
 
     fetch("http://localhost:8003/create_order", {

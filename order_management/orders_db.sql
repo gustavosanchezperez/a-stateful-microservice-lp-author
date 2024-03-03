@@ -4,10 +4,11 @@ GRANT ALL PRIVILEGES ON orders.* TO 'orders'@'%';
 
 USE orders;
 
-CREATE OR REPLACE TABLE orders (id int primary key NOT NULL AUTO_INCREMENT,
-    productId int DEFAULT 0,
-       qty int DEFAULT 0,
+CREATE OR REPLACE TABLE orders (order_id int primary key NOT NULL AUTO_INCREMENT,
+    product_id int DEFAULT 0,
+       quantity int DEFAULT 0,
        subtotal float DEFAULT 0.0,
-       address mediumtext,
-       zipCode mediumint(5) UNSIGNED ZEROFILL,
-       total float DEFAULT 0.0);
+       shipping_address mediumtext,
+       shipping_zip mediumint(5) UNSIGNED ZEROFILL,
+       total float DEFAULT 0.0,
+       shipping_cost float DEFAULT 0.0);
